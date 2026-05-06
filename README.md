@@ -84,13 +84,21 @@ We provide an interactive demo of KeySync at [https://huggingface.co/spaces/toni
 conda create -n KeySync python=3.11 conda-forge::ffmpeg -y
 conda activate KeySync
 
+# Clone Repo
+git clone https://github.com/antonibigata/keysync.git
+
 # Install requirements
+cd keysync
 python -m pip install -r requirements.txt --no-deps
 
 # Install PyTorch with CUDA support
 python -m pip install torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1 --index-url https://download.pytorch.org/whl/cu121
 
+# Simple test to confirm if all were instaled corretly
+python -c "import torch; print(torch.__version__); print(torch.cuda.is_available())"
+
 # OPTIONAL
+cd ..
 git clone https://github.com/facebookresearch/sam2.git && cd sam2
 
 pip install -e . --no-deps
